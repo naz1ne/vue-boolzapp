@@ -51,7 +51,16 @@
                               </div>
                               <input type="text" class="form-control" id="specificSizeInputGroupUsername" placeholder="Cerca o inizia una nuova chat">
                             </div>
-                        
+                  </div>
+                  <!-- /.search_form -->
+                  <div class="list_chat" v-for="contact in contacts">
+                        <div class="avatar_image m-2 d-flex">
+                              <img :src="'./assets/img/avatar' + contact.avatar + '.jpg'" />
+                              <div class="chat_info mx-2">
+                                    <p class="my-0">{{contact.name}}</p>
+                                    <small class="text-muted">Ultimo accesso oggi alle 12:00</small>
+                              </div>
+                        </div>
                   </div>
             </div>
             <!-- /.left_section -->
