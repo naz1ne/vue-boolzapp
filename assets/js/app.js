@@ -1,3 +1,9 @@
+/* Descrizione
+In questa prima giornata ci concentreremo sulla Milestone 1, dove é richiesta la riproduzione della grafica e visualizzazione dinamica della lista contatti.
+Milestone 1
+Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi) e dall’interlocutore (bianco) assegnando due classi CSS diverse
+Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto */
+
 const { createApp } = Vue
 
 createApp ({
@@ -168,4 +174,4 @@ createApp ({
                   ]
             }
       }
-})
+}).mount('#app')
