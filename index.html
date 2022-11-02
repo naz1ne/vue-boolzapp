@@ -50,15 +50,16 @@
                                     <i class="fa-solid fa-magnifying-glass p-2 text-muted"></i>
                               </div>
                               <input type="text" class="form-control" id="specificSizeInputGroupUsername" placeholder="Cerca o inizia una nuova chat">
-                            </div>
+                        </div>
                   </div>
                   <!-- /.search_form -->
-                  <div class="list_chat" v-for="contact in contacts">
+                  <div class="list_chat position-relative" v-for="contact in contacts">
                         <div class="avatar_image m-2 d-flex">
                               <img :src="'./assets/img/avatar' + contact.avatar + '.jpg'" />
                               <div class="chat_info mx-2">
                                     <p class="my-0">{{contact.name}}</p>
-                                    <small class="text-muted">Ultimo accesso oggi alle 12:00</small>
+                                    <small class="text-muted">Ultimo messaggio inviato</small>
+                                    <small class="position-absolute top-0 end-0 px-2 text-muted">12:00</small>
                               </div>
                         </div>
                   </div>
@@ -80,7 +81,22 @@
                         </div>
                   </div>
                   <!-- /.right_head -->
-                  
+                  <div class="active_chat">
+                        
+                  </div>
+                  <!-- /.active_chat -->
+                  <div class="right_foot search_form ">
+                        <div class="input-group">
+                              <div class="text-muted m-2">
+                                    <i class="fa-regular fa-face-smile p-2"></i>
+                              </div>
+                              <input type="text" class="form-control p-2" placeholder="Scrivi un nuovo messaggio">
+                              <div class="text-muted m-2">
+                                    <i class="fa-solid fa-microphone p-2"></i>
+                              </div>
+                        </div>
+                  </div>
+                  <!-- /.right_foot -->
             </div>
             <!-- /.right_section -->
             

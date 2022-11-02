@@ -38,11 +38,15 @@ body {
 .left_section {
       border: 1px solid;
       width: 30%;
+      height: 800px;
 }
 
 .right_section {
       border: 1px solid;
       flex-grow: 1;
+      height: 800px;
+      background-image: url(../img/mine.jpg);
+      position: relative;
 }
 
 .left_head,
@@ -76,4 +80,11 @@ body {
       object-fit: cover;
       aspect-ratio: 1/1;
       background-color: white;
+}
+
+.right_foot{
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      background-color: var(--bz_light);
 }
