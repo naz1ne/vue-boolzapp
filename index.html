@@ -19,7 +19,7 @@
       <div class="head_background"></div>
       <div class="foot_background"></div>
       <div id="app" class="container d-flex my-4">
-            <div class="left_section">
+            <div class="left_section bg-light">
                   <div class="left_head d-flex justify-content-between align-items-center">
                         <div class="avatar_image m-2">
                               <img src="./assets/img/avatar_io.jpg" alt="">
@@ -32,14 +32,37 @@
                         </div>
                   </div>
                   <!-- /.left_head -->
-                  
+                  <div class="banner_notice p-4 d-flex">
+                        <div class="banner_icon">
+                              <i class="fa-solid fa-bell-slash fa-xl"></i>
+                        </div>
+                        <!-- /.banner_icon -->
+                        <div class="update_notice mx-2">
+                              <p class="my-0">Ricevi notifiche di nuovi messaggi</p>
+                              <small><a href="#" class="text-muted">Attiva notifiche desktop</a></small>
+                        </div>
+                        <!-- /.update_notice -->
+                  </div>
+                  <!-- /.banner_notice -->
+                  <div class="search_form m-2 d-flex">
+                        <div class="input-group">
+                              <div class="input-group-text bg-light">
+                                    <i class="fa-solid fa-magnifying-glass p-2 text-muted"></i>
+                              </div>
+                              <input type="text" class="form-control" id="specificSizeInputGroupUsername" placeholder="Cerca o inizia una nuova chat">
+                            </div>
+                        
+                  </div>
             </div>
             <!-- /.left_section -->
             <div class="right_section">
                   <div class="right_head d-flex justify-content-between align-items-center">
-                        <div class="avatar_image m-2">
+                        <div class="avatar_image m-2 d-flex">
                               <img src="./assets/img/avatar_1.jpg" alt="">
-                              <small class="mx-2">Luca</small>
+                              <div class="chat_info mx-2">
+                                    <p class="my-0">Michele</p>
+                                    <small class="text-muted">Ultimo accesso oggi alle 12:00</small>
+                              </div>
                         </div>
                         <div class="icon_menu">
                               <i class="fa-solid fa-magnifying-glass fa-xl"></i>
@@ -51,10 +74,10 @@
                   
             </div>
             <!-- /.right_section -->
-
-
-
-
+            
+            
+            
+            
       </div>
       <!-- Bootstrap JavaScript Libraries -->
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

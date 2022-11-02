@@ -16,6 +16,7 @@ body {
       --bz_lighter: #B1B1B1;
       --bz_lightning: #DCDBD2;
 }
+
 #app {
       position: fixed;
       top: 0;
@@ -59,4 +60,20 @@ body {
 .icon_menu > i {
       margin: 0 0.5rem;
       color: var(--bz_lighter);
+}
+
+.banner_notice {
+      background-color: var(--bz_banner);
+}
+
+.banner_icon > i {
+      width: 50px;
+      color: var(--bz_banner);
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      border-radius: 50%;
+      object-fit: cover;
+      aspect-ratio: 1/1;
+      background-color: white;
 }
