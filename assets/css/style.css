@@ -4,9 +4,9 @@
       box-sizing: border-box;
 }
 
-/* body {
-      height: 100vh;
-} */
+body {
+      background-image: linear-gradient(to bottom, var(--bz_theme) 0, var(--bz_theme) 140px, var(--bz_lightning) 140px, var(--bz_lightning) 100%);
+}
 
 :root {
       --bz_theme: #009688;
@@ -19,21 +19,6 @@
 
 #app {
       height: 90vh;
-      position: fixed;
-      top: 0;
-      z-index: 1000;
-      left: 50%;
-      transform: translate(-50%);
-}
-
-.head_background {
-      background-color: var(--bz_theme);
-      height: 150px;
-}
-
-.foot_background {
-      background-color: var(--bz_lightning);
-      height: calc(100vh - 150px);
 }
 
 .left_section {
