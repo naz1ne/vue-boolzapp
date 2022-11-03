@@ -213,6 +213,10 @@ createApp ({
                                     contact.visible = true
                               } 
                         }
+                        //fix bug quando era vuoto l'input era tutto in visible: false quindi, se input è = a '' allora metto su true
+                        if(input === ''){
+                              contact.visible = true
+                        }
                   })
             }
       }
