@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+      <title>Title</title>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- fontawesome -->
+      <script src="https://kit.fontawesome.com/641e4c79bb.js" crossorigin="anonymous"></script>
+      <!-- Bootstrap CSS v5.2.1 -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+      <!-- CSS -->
+      <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+      
+      <div id="app" class="container d-flex my-4">
+            <div class="left_section bg-light">
+                  <div class="left_head d-flex justify-content-between align-items-center">
+                        <div class="avatar_image m-2">
+                              <img src="./assets/img/avatar_io.jpg" alt="">
+                              <small class="mx-2">Sofia</small>
+                        </div>
+                        <div class="icon_menu">
+                              <i class="fa-solid fa-circle-notch fa-xl"></i>
+                              <i class="fa-solid fa-message fa-xl"></i>
+                              <i class="fa-solid fa-ellipsis-vertical fa-xl"></i>
+                        </div>
+                  </div>
+                  <!-- /.left_head -->
+                  <div class="banner_notice p-4 d-flex">
+                        <div class="banner_icon">
+                              <i class="fa-solid fa-bell-slash fa-xl"></i>
+                        </div>
+                        <!-- /.banner_icon -->
+                        <div class="update_notice mx-2">
+                              <p class="my-0">Ricevi notifiche di nuovi messaggi</p>
+                              <small><a href="#" class="text-muted">Attiva notifiche desktop</a></small>
+                        </div>
+                        <!-- /.update_notice -->
+                  </div>
+                  <!-- /.banner_notice -->
+                  <div class="search_form m-2 d-flex">
+                        <div class="input-group">
+                              <div class="input-group-text bg-light">
+                                    <i class="fa-solid fa-magnifying-glass p-2 text-muted"></i>
+                              </div>
+                              <input type="text" class="form-control" id="specificSizeInputGroupUsername" placeholder="Cerca o inizia una nuova chat" v-model="contactName" @input="searchContact">
+                        </div>
+                  </div>
+                  <!-- /.search_form -->
+                  <div class="section_contact">
+                        <div class="list_chat position-relative" v-for="(contact, i) in contacts" :style="contact.visible === true ? '' : 'display: none;' ">
+                              <div class="avatar_image p-2 d-flex" @click="activeChat(i)" :class=" i == active ? 'select_chat' : ''">
+                                    <img :src="'./assets/img/avatar' + contact.avatar + '.jpg'" />
+                                    <div class="chat_info mx-2">
+                                          <p class="my-0">{{contact.name}}</p>
+                                          <small class="text-muted">{{contact.messages[contact.messages.length-1].message}}</small>
+                                          <small class="position-absolute bottom-2 end-0 px-2 text-muted">{{contact.messages[contact.messages.length-1].date.slice(11, 16)}}</small>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+            <!-- /.left_section -->
+            <div class="right_section">
+                  <div class="right_head d-flex justify-content-between align-items-center">
+                        <div class="avatar_image m-2 d-flex" >
+                              <img :src="'./assets/img/avatar' + contacts[active].avatar + '.jpg'" alt="">
+                              <div class="chat_info mx-2">
+                                    <p class="my-0">{{contacts[active].name}}</p>
+                                    <small class="text-muted">Ultimo accesso oggi alle 12:00</small>
+                              </div>
+                        </div>
+                        <div class="icon_menu">
+                              <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+                              <i class="fa-solid fa-paperclip fa-xl"></i>
+                              <i class="fa-solid fa-ellipsis-vertical fa-xl"></i>
+                        </div>
+                  </div>
+                  <!-- /.right_head -->
+                  <div class="active_chat">
+                        <div class="single_message" v-for="(message, i) in contacts[active].messages" :class="message.status === 'sent' ? 'sent' : 'received'">
+                              <div class="text_message" >
+                                    {{message.message}}
+                              </div>
+                              
+                              <small class="dropdown">
+                                    <button class="btn border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                          <i class="fa-solid fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                          <li><a class="dropdown-item" href="#" @click.stop="done(i)">Cancella messaggio</a></li>
+                                    </ul>
+                              </small>
+                              
+                              
+                              <div class="text-muted time_message">{{message.date.slice(11, 16)}}</div>
+                              
+                        </div>
+                  </div>
+                  <!-- /.active_chat -->
+                  <div class="right_foot search_form">
+                        <div class="input-group">
+                              <div class="text-muted m-2">
+                                    <i class="fa-regular fa-face-smile p-2"></i>
+                              </div>
+                              <input type="text" class="form-control p-2" placeholder="Scrivi un nuovo messaggio" v-model="myMessages.message" @keyup.enter="addMessage">
+                              <div class="text-muted m-2">
+                                    <i class="fa-solid fa-microphone p-2"></i>
+                              </div>
+                        </div>
+                  </div>
+                  <!-- /.right_foot -->
+            </div>
+            <!-- /.right_section -->
+            
+            
+            
+            
+      </div>
+      <!-- Bootstrap JavaScript Libraries -->
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+</script>
+<!-- cdn vue -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<!-- myScript -->
+<script src="./assets/js/app.js"></script>
+</body>
+
+</html>
