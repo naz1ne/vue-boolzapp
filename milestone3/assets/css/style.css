@@ -1,0 +1,116 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+}
+
+body {
+      background-image: linear-gradient(to bottom, var(--bz_theme) 0, var(--bz_theme) 140px, var(--bz_lightning) 140px, var(--bz_lightning) 100%);
+}
+
+:root {
+      --bz_theme: #009688;
+      --bz_banner: #8EDAFC;
+      --bz_sent: #D5F9BA;
+      --bz_light: #EAEAEA;
+      --bz_lighter: #B1B1B1;
+      --bz_lightning: #DCDBD2;
+}
+
+#app {
+      height: 90vh;
+}
+
+.left_section {
+      width: 40%;
+      height: 90vh;
+}
+
+.right_section {
+      flex-grow: 1;
+      background-image: url(../img/mine.jpg);
+      position: relative;
+      height: 90vh;
+}
+
+.left_head,
+.right_head,
+.right_foot {
+      background-color: var(--bz_light);
+      height: 70px;
+}
+
+.avatar_image > img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      aspect-ratio: 1/1;
+}
+
+.icon_menu > i {
+      margin: 0 0.5rem;
+      color: var(--bz_lighter);
+}
+
+.banner_notice {
+      background-color: var(--bz_banner);
+      height: 80px;
+      display: flex;
+      align-items: center;
+}
+
+.banner_icon > i {
+      width: 50px;
+      color: var(--bz_banner);
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      border-radius: 50%;
+      object-fit: cover;
+      aspect-ratio: 1/1;
+      background-color: white;
+}
+
+.search_form {
+      height: 50px;
+}
+
+.section_contact {
+      height: calc(90vh - 200px - 1rem);
+      overflow-y: scroll;
+}
+.list_chat {
+      height: 60px;
+}
+
+.active_chat {
+      display: flex;
+      flex-direction: column;
+      height: calc(90vh - 120px);
+      overflow-y: scroll;
+}
+
+.single_message {
+      padding: 0.25rem 0.8rem;
+      width: 200px;
+      margin: 0.5rem 3rem;
+      border-radius: 1rem;
+}
+
+.sent {
+      align-self: flex-end;
+      background-color: var(--bz_sent);
+}
+
+.received {
+      background-color: var(--bz_light);
+}
+
+.time_message {
+      font-size: 12px;
+}
+
+.select_chat {
+      background-color: var(--bz_lighter);
+}

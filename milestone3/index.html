@@ -89,12 +89,12 @@
                         </div>
                   </div>
                   <!-- /.active_chat -->
-                  <div class="right_foot search_form ">
+                  <div class="right_foot search_form">
                         <div class="input-group">
                               <div class="text-muted m-2">
                                     <i class="fa-regular fa-face-smile p-2"></i>
                               </div>
-                              <input type="text" class="form-control p-2" placeholder="Scrivi un nuovo messaggio">
+                              <input type="text" class="form-control p-2" placeholder="Scrivi un nuovo messaggio" v-model="myMessages.message" @keyup.enter="addMessage">
                               <div class="text-muted m-2">
                                     <i class="fa-solid fa-microphone p-2"></i>
                               </div>
