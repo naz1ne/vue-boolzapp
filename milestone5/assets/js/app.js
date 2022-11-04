@@ -3,7 +3,7 @@ const { createApp } = Vue
 createApp ({
       data(){
             return {
-                  contactName: '',
+                  input: '',
                   myMessages: {
                         date: '10/01/2020 16:15:22',
                         message: '',
@@ -198,30 +198,27 @@ createApp ({
             searchContact(){
                   //ciclo dentro contacts per prendere il singolo oggetto e la sua proprietà visible
                   this.contacts.forEach(contact => {
-                        //set visible su false (nell'html metto l'operatore ternario se false applico d-none)
-                        contact.visible = false;
-                        //creo una variabile per settare in lowercase i nomi dei contatti e faccio al stessa cosa con i dati che inserisco nell'input
-                        const nameContact = contact.name.toLowerCase();
-                        const input = this.contactName.toLowerCase();
-                        //creo una stringa vuota dove vado ad inserire i nomi in lowercase
-                        let wordContact ='';
-                        //ciclo for per la lunghezza dei nomi dei contatti, ad ogni iterazione alla mia stringa vuota (wordContact) inserisco i caratteri messi precedentemente in lowercase
-                        for (let i = 0; i < nameContact.length ; i++) {
-                              wordContact += nameContact.charAt(i);
-                              //se word contact è uguale a ciò che inserisce l'utente allora metti visible true
-                              if (wordContact === input){
-                                    contact.visible = true
-                              } 
-                        }
-                        //fix bug quando era vuoto l'input era tutto in visible: false quindi, se input è = a '' allora metto su true
-                        if(input === ''){
+                        // fixbug
+                        // searchContact vedere se include le stesse lettere
+                        if (contact.name.toLowerCase().includes(this.input.toLowerCase())) {
+                              contact.visible = true
+                          } else {
+                              contact.visible = false
+                          }
+                        if(this.input === ''){
                               contact.visible = true
                         }
                   })
             },
             done(i){
                   this.contacts[this.active].messages.splice(i, 1)
-            }
+            },
+            
       }
 }).mount('#app')
       
+
+
+// funzione per richiamare l'ultimo messaggio (se non è presente allora no) e collegare la left section
+
+//v-if="contact.messages.length > 0"
