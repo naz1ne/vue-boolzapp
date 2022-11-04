@@ -213,12 +213,18 @@ createApp ({
             done(i){
                   this.contacts[this.active].messages.splice(i, 1)
             },
-            
+            /* lastMessage(){
+
+                  this.contacts.forEach(contact => {
+
+                        if(contact.messages.length > 0){
+                              console.log('è superiore a 0');
+                        } else {
+                              console.log('inferiore a 0');
+                        }
+                  })
+                  
+            } */
       }
 }).mount('#app')
       
-
-
-// funzione per richiamare l'ultimo messaggio (se non è presente allora no) e collegare la left section
-
-//v-if="contact.messages.length > 0"
